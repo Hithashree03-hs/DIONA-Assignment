@@ -28,8 +28,8 @@ Open either exercise and use its **Print / Save PDF** action. In the print dialo
 
 ## Video Demonstrations
 
-- Exercise 1 – Medical & Travel Expense Request: [Download/watch video](2026-09-01%2015-37-13.mp4)
-- Exercise 2 – Worker Progress Report: [Download/watch video](2026-09-01%2015-51-06.mp4)
+- Exercise 1 – Medical & Travel Expense Request: [Download video](2026-09-01%2015-37-13.mp4)
+- Exercise 2 – Worker Progress Report: [Download video](2026-09-01%2015-51-06.mp4)
 
 ## AI Assistance
 
