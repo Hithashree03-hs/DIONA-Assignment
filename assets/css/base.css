@@ -1,0 +1,350 @@
+/* =====================================================================
+   Shared foundation — page frame, toolbar, footer, print rules.
+   Used by both exercises. Pure CSS, no frameworks.
+   ===================================================================== */
+
+:root {
+  --accent: #1b6ab3;        /* WCB blue */
+  --accent-dark: #124b80;
+  --ink: #1d1d1f;           /* static (form) text */
+  --ink-data: #2e5f8a;      /* user-entered values render blue, like the PDF */
+  --line: #3c3c3c;          /* table / box borders */
+  --desk: #dde4ec;          /* screen background behind the paper */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--desk);
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------------- */
+/* Toolbar (screen only — hidden when printing)                      */
+/* ---------------------------------------------------------------- */
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #0e3a63, #1b6ab3);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(9, 34, 63, 0.35);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.tb-back {
+  color: #cfe3f7;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+.tb-back:hover { background: rgba(255, 255, 255, 0.15); color: #fff; }
+
+.tb-title { font-weight: 600; font-size: 15px; flex: 1; min-width: 220px; }
+.tb-sep { opacity: 0.55; margin: 0 4px; }
+
+.seg {
+  display: flex;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 3px;
+}
+.seg button {
+  border: 0;
+  background: transparent;
+  color: #d9eaf9;
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 600;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+.seg button:hover { color: #fff; }
+.seg button.active {
+  background: #fff;
+  color: var(--accent-dark);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.tb-stat { font-size: 12.5px; color: #cfe3f7; white-space: nowrap; }
+
+.btn-print {
+  border: 0;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--accent-dark);
+  font-weight: 700;
+  font-size: 12.5px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+.btn-print:hover { background: #eaf3fc; }
+
+.btn-edit {
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font-weight: 700;
+  font-size: 12.5px;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-edit:hover { background: rgba(255, 255, 255, 0.15); }
+
+/* ---------------------------------------------------------------- */
+/* Live data editor drawer (screen only)                             */
+/* ---------------------------------------------------------------- */
+
+.editor-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(480px, 92vw);
+  background: #0f1c2c;
+  color: #dce7f5;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -6px 0 26px rgba(0, 0, 0, 0.4);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+.editor-drawer[hidden] { display: none; }
+
+.ed-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  font-weight: 700;
+  font-size: 15px;
+  background: #13253a;
+}
+.ed-head small { font-weight: 400; color: #8fb4d9; }
+.ed-close {
+  border: 0;
+  background: transparent;
+  color: #8fb4d9;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+.ed-close:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+
+.ed-hint {
+  margin: 0;
+  padding: 10px 18px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #9db9d6;
+  border-bottom: 1px solid #1d3450;
+}
+
+.ed-text {
+  flex: 1;
+  border: 0;
+  outline: none;
+  resize: none;
+  background: #0b1622;
+  color: #cfe6ff;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 12.5px;
+  line-height: 1.55;
+  padding: 14px 16px;
+}
+
+.ed-error {
+  padding: 9px 18px;
+  background: #4a1420;
+  color: #ffb9c4;
+  font-size: 12.5px;
+}
+
+.ed-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  background: #13253a;
+}
+.ed-apply {
+  border: 0;
+  border-radius: 8px;
+  background: #1b6ab3;
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 9px 22px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.ed-apply:hover { background: #2a7cc9; }
+.ed-reset {
+  border: 1.5px solid #2c4a6e;
+  border-radius: 8px;
+  background: transparent;
+  color: #9db9d6;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.ed-reset:hover { color: #fff; border-color: #4a6f99; }
+.ed-status { font-size: 12.5px; color: #7fd49a; font-weight: 600; }
+
+/* ---------------------------------------------------------------- */
+/* The paper — US Letter pages rendered like a PDF viewer            */
+/* ---------------------------------------------------------------- */
+
+#paper { padding: 30px 12px 70px; overflow-x: auto; }
+
+.page {
+  width: 8.5in;
+  height: 11in;
+  margin: 0 auto 28px;
+  background: #fff;
+  position: relative;
+  box-shadow: 0 3px 20px rgba(14, 40, 70, 0.2);
+}
+
+/* Content window: fixed insets so the paginator can measure overflow */
+.page-content {
+  position: absolute;
+  top: 0.55in;
+  left: 0.68in;
+  right: 0.68in;
+  bottom: 0.95in;
+  overflow: hidden;
+}
+
+.page-footer {
+  position: absolute;
+  left: 0.68in;
+  right: 0.68in;
+  bottom: 0.4in;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 9.5pt;
+  color: #222;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+.pf-right { text-align: right; line-height: 1.5; }
+.pf-right .pf-num { display: block; }
+
+/* ---------------------------------------------------------------- */
+/* Shared document pieces                                            */
+/* ---------------------------------------------------------------- */
+
+/* Dynamic (data-driven) values render blue, like the source PDFs */
+.dv { color: var(--ink-data); }
+
+.doc-header {
+  display: flex;
+  gap: 0.26in;
+  align-items: flex-start;
+  margin-bottom: 0.28in;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+.dh-logo svg { display: block; }
+.dh-addr { font-size: 9pt; line-height: 1.5; color: #222; padding-top: 4px; }
+.dh-right { margin-left: auto; max-width: 2.95in; padding-top: 4px; }
+.dh-doc-title { font-size: 13.5pt; font-weight: 700; line-height: 1.25; margin-bottom: 9px; }
+.dh-doc-title.plain { font-weight: 400; font-size: 14pt; }
+.claim-box {
+  display: inline-block;
+  border: 1.6px solid #222;
+  padding: 4px 10px;
+  font-size: 11pt;
+}
+.wp-box {
+  display: inline-block;
+  border: 1.6px solid #222;
+  padding: 4px 9px;
+  font-size: 11pt;
+  margin-left: 8px;
+}
+
+.doc-intro { margin: 0 0 14px; font-size: 11pt; }
+
+/* Checkbox glyph */
+.cb {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1.4px solid #2c2c2c;
+  background: #fff;
+  position: relative;
+  flex: none;
+  vertical-align: -2px;
+}
+.cb.checked::after {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 0;
+  width: 8px;
+  height: 4px;
+  border-left: 2px solid #111;
+  border-bottom: 2px solid #111;
+  transform: rotate(-50deg);
+}
+
+/* Underlined fill-in field with a small caption underneath */
+.fill-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: top;
+  margin: 0 4px;
+}
+.fill {
+  border-bottom: 1px solid #2c2c2c;
+  min-width: 150px;
+  text-align: center;
+  padding: 0 8px 1px;
+  min-height: 16px;
+}
+.fill-caption { font-size: 8pt; color: #333; padding-top: 2px; }
+.fill-wrap.grow { flex: 1; }
+.fill-wrap.grow .fill { width: 100%; min-width: 0; }
+
+.link { color: #1a56a0; text-decoration: underline; }
+
+/* ---------------------------------------------------------------- */
+/* Print: one sheet per .page, toolbar hidden                        */
+/* ---------------------------------------------------------------- */
+
+@page { size: Letter; margin: 0; }
+
+@media print {
+  body { background: #fff; }
+  .toolbar, .no-print { display: none !important; }
+  #paper { padding: 0; overflow: visible; }
+  .page {
+    margin: 0;
+    box-shadow: none;
+    height: 10.98in; /* hairline under 11in prevents blank spill pages */
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+}

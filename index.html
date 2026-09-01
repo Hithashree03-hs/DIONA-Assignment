@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIONA Assignment · WCB Dynamic Documents</title>
+  <style>
+    :root {
+      --navy: #0e3a63;
+      --blue: #1b6ab3;
+      --ink: #1e2733;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f2f5f9;
+      color: var(--ink);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: #fff;
+      text-align: center;
+      padding: 64px 24px 110px;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      margin-bottom: 20px;
+    }
+    .hero h1 { margin: 0 0 12px; font-size: clamp(26px, 4vw, 40px); }
+    .hero p {
+      margin: 0 auto;
+      max-width: 640px;
+      font-size: 16px;
+      color: #d7e7f7;
+      line-height: 1.6;
+    }
+
+    .cards {
+      max-width: 1040px;
+      margin: -64px auto 0;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 28px rgba(14, 40, 70, 0.14);
+      padding: 26px 26px 22px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(14, 40, 70, 0.2); }
+    .card .top { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .card .icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #e7f1fb, #cfe3f7);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+    .card .kicker { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--blue); text-transform: uppercase; }
+    .card h2 { margin: 2px 0 0; font-size: 20px; }
+    .card ul { margin: 0 0 18px; padding-left: 20px; color: #46536a; font-size: 14px; line-height: 1.9; }
+    .card .cta-row { margin-top: auto; display: flex; align-items: center; justify-content: space-between; }
+    .pages-badge {
+      font-size: 12.5px; font-weight: 600; color: #46536a;
+      background: #eef2f8; border-radius: 999px; padding: 6px 12px;
+    }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 11px 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(27, 106, 179, 0.35);
+    }
+    .btn:hover { filter: brightness(1.08); }
+
+    .howto {
+      max-width: 1040px;
+      margin: 36px auto 0;
+      padding: 0 20px;
+    }
+    .howto .panel {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(14, 40, 70, 0.1);
+      padding: 24px 26px;
+    }
+    .howto h3 { margin: 0 0 6px; font-size: 18px; }
+    .howto p { margin: 0 0 14px; color: #46536a; font-size: 14px; }
+    .howto code, .howto pre {
+      background: #0f1c2c;
+      color: #bfe0ff;
+      border-radius: 8px;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 13px;
+    }
+    .howto pre { padding: 12px 16px; overflow-x: auto; margin: 0 0 10px; }
+    .howto code { padding: 2px 7px; }
+    .tip { font-size: 13px; color: #46536a; margin-top: 12px; }
+
+    footer {
+      text-align: center;
+      color: #8a97a8;
+      font-size: 13px;
+      padding: 40px 20px 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="badge">HTML &middot; CSS &middot; JavaScript — no frameworks</div>
+    <h1>WCB Dynamic Document Generator</h1>
+    <p>Two Workers Compensation Board of Manitoba documents rebuilt as fully dynamic,
+       data-driven web pages — with real pagination, headers, footers, page numbers
+       and print-to-PDF fidelity.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="top">
+        <div class="icon">🧾</div>
+        <div>
+          <div class="kicker">Exercise 1</div>
+          <h2>Medical &amp; Travel Expense Request</h2>
+        </div>
+      </div>
+      <ul>
+        <li>Six expense tables generated entirely from JavaScript data</li>
+        <li>Empty sections auto-hide; long tables split across pages with repeated headers</li>
+        <li>Three datasets: Minimal (1 page), Standard (the PDF), Extended (multi-page)</li>
+        <li>Live total-claimed calculation in the toolbar</li>
+      </ul>
+      <div class="cta-row">
+        <span class="pages-badge">1–4 pages, data-dependent</span>
+        <a class="btn" href="exercise1/index.html">Open Exercise 1 →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="top">
+        <div class="icon">📋</div>
+        <div>
+          <div class="kicker">Exercise 2</div>
+          <h2>Worker Progress Report</h2>
+        </div>
+      </div>
+      <ul>
+        <li>Form-style layout: checkboxes, fill-in lines, comment boxes, pain scale</li>
+        <li>Every tick, date and comment is driven by the scenario data</li>
+        <li>Declaration always starts on its own final page, like the original</li>
+        <li>Three scenarios, including a long-form one that re-paginates</li>
+      </ul>
+      <div class="cta-row">
+        <span class="pages-badge">3+ pages, data-dependent</span>
+        <a class="btn" href="exercise2/index.html">Open Exercise 2 →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="howto">
+    <div class="panel">
+      <h3>How to run</h3>
+      <p>No build step and no dependencies — open <code>index.html</code> directly,
+         or serve the folder locally:</p>
+      <pre># Option A — Python
+python -m http.server 5500        # then open http://localhost:5500
+
+# Option B — Node
+npx serve .</pre>
+      <p class="tip">💡 To export a PDF: open an exercise → <b>Print / Save PDF</b> →
+         destination "Save as PDF" → enable <b>Background graphics</b>. Margins are
+         handled by the page itself.</p>
+    </div>
+  </div>
+
+  <footer>DIONA Assignment &middot; Built with plain HTML, CSS &amp; JavaScript</footer>
+
+</body>
+</html>

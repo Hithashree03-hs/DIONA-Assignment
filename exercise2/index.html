@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 2 · Worker Progress Report</title>
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="toolbar no-print">
+    <a class="tb-back" href="../index.html" title="Back to home">&larr;</a>
+    <div class="tb-title">Exercise 2 <span class="tb-sep">&middot;</span> Worker Progress Report</div>
+    <div class="seg" id="datasetSeg" title="Switch scenario to see the form adapt">
+      <button data-set="sample" class="active">Sample (PDF)</button>
+      <button data-set="recovering">Scenario B</button>
+      <button data-set="detailed">Scenario C (long)</button>
+    </div>
+    <span class="tb-stat" id="tbStat"></span>
+    <button class="btn-edit" id="btnEdit" title="Edit the current data as JSON">&#9998; Edit Data</button>
+    <button class="btn-print" id="btnPrint">Print / Save PDF</button>
+  </header>
+
+  <main id="paper"></main>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/paginator.js"></script>
+  <script src="../assets/js/editor.js"></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

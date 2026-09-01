@@ -1,0 +1,78 @@
+/* =====================================================================
+   Exercise 2 — Worker Progress Report
+   Form look: bordered option boxes, checkboxes, fill-in lines,
+   comment areas and the declaration page.
+   ===================================================================== */
+
+.page-content { font-size: 10.5pt; line-height: 1.45; }
+
+/* Light sans section headings, like the PDF */
+.sec-h {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 13pt;
+  margin: 14px 0 8px;
+}
+
+/* Bordered field boxes */
+.fbox {
+  border: 1.3px solid #444;
+  padding: 8px 12px 10px;
+  margin: 0 0 13px;
+}
+.fbox-label {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 9pt;
+  margin-bottom: 7px;
+}
+
+.opt-row { display: flex; flex-wrap: wrap; gap: 8px 0; align-items: flex-start; }
+.opt { display: flex; gap: 8px; align-items: flex-start; padding-right: 16px; }
+.opt .cb { margin-top: 3px; }
+.opt-25 { flex: 0 0 25%; }
+.opt-33 { flex: 0 0 33.33%; }
+.opt-35 { flex: 0 0 35%; }
+.opt-40 { flex: 0 0 40%; }
+.opt-50 { flex: 0 0 50%; }
+.opt-grow { flex: 1; }
+.opt-fill {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: 170px;
+}
+
+.field-line { margin: 14px 2px 16px; }
+
+/* Comment boxes */
+.comment-box {
+  border: 1.3px solid #444;
+  padding: 8px 12px;
+  margin: 0 0 13px;
+  min-height: 0.95in;
+}
+.comment-box.short { min-height: 0.55in; }
+.comment-box p.q { margin: 0 0 6px; }
+.comment-box p.a { margin: 0; white-space: pre-line; }
+
+/* Pain scale */
+.pain-row {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin: 0 2px 13px;
+}
+.pain-label { flex: 1; }
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 46px);
+  gap: 7px 12px;
+  padding-top: 2px;
+}
+.pain-opt { display: flex; gap: 7px; align-items: center; font-size: 10pt; }
+
+/* Declarations (last page) */
+.decl { display: flex; gap: 11px; margin: 4px 0 20px; }
+.decl .cb { margin-top: 4px; }
+.decl p { margin: 0; text-align: justify; line-height: 1.5; }

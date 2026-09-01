@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 1 · Medical &amp; Travel Expense Request</title>
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="toolbar no-print">
+    <a class="tb-back" href="../index.html" title="Back to home">&larr;</a>
+    <div class="tb-title">Exercise 1 <span class="tb-sep">&middot;</span> Medical &amp; Travel Expense Request</div>
+    <div class="seg" id="datasetSeg" title="Switch dataset to see the document adapt">
+      <button data-set="minimal">Minimal</button>
+      <button data-set="standard" class="active">Standard (PDF)</button>
+      <button data-set="extended">Extended</button>
+    </div>
+    <span class="tb-stat" id="tbStat"></span>
+    <button class="btn-edit" id="btnEdit" title="Edit the current data as JSON">&#9998; Edit Data</button>
+    <button class="btn-print" id="btnPrint">Print / Save PDF</button>
+  </header>
+
+  <main id="paper"></main>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/paginator.js"></script>
+  <script src="../assets/js/editor.js"></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
