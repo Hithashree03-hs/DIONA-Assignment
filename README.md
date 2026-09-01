@@ -25,3 +25,18 @@ Then visit `http://localhost:5500`.
 ## Exporting PDFs
 
 Open either exercise and use its **Print / Save PDF** action. In the print dialog, select **Save as PDF** and enable background graphics.
+## Video Demonstrations
+
+- Exercise 1 – Medical & Travel Expense Request: [Watch video](PASTE_EXERCISE_1_VIDEO_LINK_HERE)
+- Exercise 2 – Worker Progress Report: [Watch video](PASTE_EXERCISE_2_VIDEO_LINK_HERE)
+
+## AI Assistance
+
+AI assistance was used during development for project guidance and presentation preparation.
+
+The prompt history is available in [AI_PROMPT_HISTORY.md](AI_PROMPT_HISTORY.md).
+# AI Prompt History
+
+AI assistance was used for project guidance, including documentation and presentation preparation.
+
+All code was reviewed, tested, and submitted by me.
