@@ -25,10 +25,11 @@ Then visit `http://localhost:5500`.
 ## Exporting PDFs
 
 Open either exercise and use its **Print / Save PDF** action. In the print dialog, select **Save as PDF** and enable background graphics.
+
 ## Video Demonstrations
 
-- Exercise 1 – Medical & Travel Expense Request: [Watch video](PASTE_EXERCISE_1_VIDEO_LINK_HERE)
-- Exercise 2 – Worker Progress Report: [Watch video](PASTE_EXERCISE_2_VIDEO_LINK_HERE)
+- Exercise 1 – Medical & Travel Expense Request: [Download/watch video](2026-09-01%2015-37-13.mp4)
+- Exercise 2 – Worker Progress Report: [Download/watch video](2026-09-01%2015-51-06.mp4)
 
 ## AI Assistance
 
